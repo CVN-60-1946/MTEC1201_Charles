@@ -37,4 +37,5 @@ ALWAYS PUT A SEMI-COLON (;) IN FRONT OF THE CODE OR IT WONT WORK (outside of p5.
     triangle(150, 300, 175, 250, 200, 300);
     triangle(350, 350, 475, 300, 500, 350);
     triangle(250, 350, 275, 300, 300, 350);
-    // Tree analogs/simplest form of trees}
+    // Tree analogs/simplest form of trees
+    }
