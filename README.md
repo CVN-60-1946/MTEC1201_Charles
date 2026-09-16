@@ -1,11 +1,15 @@
 # MTEC1201_Charles
-//homework #1 (it got messed up, don't exactly know how to fix this, just copy everything from "function setup" down in code form.)
-//This is a line comment, Use these to make your code readable, Control/Command, slash is a quick-comment style system
-// we NEED to include a setup function so that everything works fine, or else othing works at all
-// ALWAYS PUT A SEMI-COLON (;) IN FRONT OF THE CODE OR IT WONT WORK (outside of p5.js)
+homework #1 (it got messed up, don't exactly know how to fix this, just copy everything from "function setup" down in code form.)
 
-function setup()
+This is a line comment, Use these to make your code readable, Control/Command, slash is a quick-comment style system
+
+we NEED to include a setup function so that everything works fine, or else othing works at all
+
+ALWAYS PUT A SEMI-COLON (;) IN FRONT OF THE CODE OR IT WONT WORK (outside of p5.js)
+
+    function setup()
     {
+    
     createCanvas(800, 400);
     //creates a canvas
     
@@ -33,5 +37,4 @@ function setup()
     triangle(150, 300, 175, 250, 200, 300);
     triangle(350, 350, 475, 300, 500, 350);
     triangle(250, 350, 275, 300, 300, 350);
-    // Tree analogs/simplest form of trees
-}
+    // Tree analogs/simplest form of trees}
