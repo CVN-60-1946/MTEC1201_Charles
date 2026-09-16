@@ -1,5 +1,5 @@
 # MTEC1201_Charles
-homework #1 (it got messed up, don't exactly know how to fix this, just copy everything from "function setup" down.)
+homework #1 (it got messed up, don't exactly know how to fix this, just copy everything from "function setup" down in code form.)
 
 -
 //This is a line comment, Use these to make your code readable, Control/Command, slash is a quick-comment style system
