@@ -1,14 +1,15 @@
 # MTEC1201_Charles
-work #1
-helloworld
+homework #1 (it got messed up, don't exactly know how to fix this, just copy everything from "function setup" down.)
 
+-
 //This is a line comment, Use these to make your code readable, Control/Command, slash is a quick-comment style system
 // we NEED to include a setup function so that everything works fine, or else othing works at all
 // ALWAYS PUT A SEMI-COLON (;) IN FRONT OF THE CODE OR IT WONT WORK (outside of p5.js)
+
 function setup()
-{
+    {
     createCanvas(800, 400);
-    // creates a canvas
+    //creates a canvas
     
     background(110, 200, 235);
     // changes the color of the background
