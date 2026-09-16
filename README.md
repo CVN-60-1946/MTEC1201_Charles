@@ -1,9 +1,9 @@
 # MTEC1201_Charles
 homework #1 (it got messed up, don't exactly know how to fix this, just copy everything from "function setup" down in code form.)
 
-This is a line comment, Use these to make your code readable, Control/Command, slash is a quick-comment style system
+This is a line comment, Use these to make your code readable, Control/Command, slash is a quick-comment style system.
 
-we NEED to include a setup function so that everything works fine, or else othing works at all
+we NEED to include a setup function so that everything works fine, or else othing works at all.
 
 ALWAYS PUT A SEMI-COLON (;) IN FRONT OF THE CODE OR IT WONT WORK (outside of p5.js)
 
