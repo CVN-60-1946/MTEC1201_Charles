@@ -26,7 +26,7 @@ triangle(250, 400, 550, 150, 750, 400);
 
 fill(y);
 ellipse(90, 90, 90);
-// here comes da sun/moon, of all things.
+// This is the sun, but it can also change into the moon with variable "y".
 fill(150, 250, 150);
 triangle(700, 250, 525, 600, 775, 250);
 // landmass on the verge of a breakaway
