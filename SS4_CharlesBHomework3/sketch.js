@@ -20,8 +20,7 @@ function setup() {
     x = height / 1;
 }
 
-function draw()
-{
+function draw() {
     background(100, 100, 255);
     //Code for the Sun
     fill(r, g, b);
@@ -32,3 +31,6 @@ function draw()
     rect(0, 650, 1487, 706);
     
 }
+
+//NOTE: I wasn't able to get this to work. I tried to make the sun slowly drop when you click, but when i tried to move it down using the yMove, it didn't work.
+//I was trying to go with a setting where the sun sets, and then the Moon Rises with small stars moving around. However, like i said, I wasn't able to get it to work despite 4 different attempts, and i do not know why.
