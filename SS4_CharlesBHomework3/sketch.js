@@ -40,9 +40,10 @@ function draw() {
 }
 
 function mousePressed() {
-    let r = 155
-    let g = 155
-    let b = 155
+    
+    r -= 20;		
+	g -= 20;	
+	b += 10;
 
     function draw() {
         background(5, 11, 2);
@@ -57,6 +58,10 @@ function mousePressed() {
 }
 
 function keyPressed() {
+    let r = 255;
+    let g = 255;
+    let b = 0;
+
     function draw() {
     background(100, 100, 255);
     //Copied Code for the Sun
