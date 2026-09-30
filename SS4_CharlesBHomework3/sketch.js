@@ -43,7 +43,7 @@ function mousePressed() {
     r -= 20;		
 	g -= 20;	
 	b += 10;
-    y -= 5; //sets the sun
+    y = -5; //sets the sun
 
     function draw() {
         background(5, 11, 2);
