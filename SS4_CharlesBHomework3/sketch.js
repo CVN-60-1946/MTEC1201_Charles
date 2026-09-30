@@ -51,9 +51,9 @@ function mousePressed() {
         fill(r, g, b);
         ellipse(x, y, 75, 75);
 
-    //creating the ground, but it is darker.
-    fill(10, 153, 34);
-    rect(0, 650, 1487, 706);
+        //creating the ground, but it is darker.
+        fill(10, 153, 34);
+        rect(0, 650, 1487, 706);
     }
 
     //Creating A Star, though more could be many more.
