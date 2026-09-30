@@ -1,14 +1,13 @@
-// Charles B.
-// Observing the Stars under Midnight
-// Press the Mouse button to make the sky eepy and start the show, Press the W key to wake yo ass up(rise the sun).
-// I've always been fascinated by 4 things in life: History, Railways, Military(technology), and Space. I've always wanted to do a space themed star-viewing thing, so here it is.
-
 //NOTE: I wasn't able to get this to work. I tried to make the sun slowly drop when you click, but when i tried to move it down using the yMove, it didn't work.
 //I was trying to go with a setting where the sun sets, and then the Moon Rises with small stars moving around. However, like i said, I wasn't able to get it to work, and i do not know why.
 //(dont ask if i considered using AI, nope, negative, not in this class.)
 //This is what i did:
 
 
+// Charles B.
+// Observing the Stars under Midnight
+// Press the Mouse button to make the sky eepy and start the show, Press the W key to wake yo ass up(rise the sun).
+// I've always been fascinated by 4 things in life: History, Railways, Military(technology), and Space. I've always wanted to do a space themed star-viewing thing, so here it is.
 
 // Basic "let" value starting points, starting at daylight.
 let x = 740;
