@@ -55,8 +55,16 @@ function mousePressed() {
     fill(10, 153, 34);
     rect(0, 650, 1487, 706);
     }
+
+    //Creating A Star, though more could be many more.
+    fill(255, 255, 255);
+    ellipse(yMove, xMove, 20, 20); 
+    //Star movements, to randomize it.
+    yMove = random(5, -5);
+    xMove = random(5, -5);
 }
 
+//when the key is pressed, the whole thing SHOULD reset to daytime (it doesn't.)
 function keyPressed() {
     let r = 255;
     let g = 255;
