@@ -6,7 +6,7 @@
 
 // Charles B.
 // Observing the Stars under Midnight
-// Press the Mouse button to make the sky eepy and start the show, Press the W key to wake yo ass up(rise the sun).
+// Press the Mouse button to make the sky darker and set up the stars, Press any button on the keyboard to rise the sun up and hide the  stars.
 // I've always been fascinated by 4 things in life: History, Railways, Military(technology), and Space. I've always wanted to do a space themed star-viewing thing, so here it is.
 
 // Basic "let" value starting points, starting at daylight.
@@ -43,12 +43,13 @@ function mousePressed() {
     r -= 20;		
 	g -= 20;	
 	b += 10;
+    y -= 5; //sets the sun
 
     function draw() {
         background(5, 11, 2);
         //Night-time sky backdrop.
         fill(r, g, b);
-        ellipse(x, y, 75, 57);
+        ellipse(x, y, 75, 75);
 
     //creating the ground, but it is darker.
     fill(10, 153, 34);
@@ -70,6 +71,5 @@ function keyPressed() {
     //creating the ground
     fill(23, 175, 50);
     rect(0, 650, 1487, 706);
-    
-}
+    }
 }
