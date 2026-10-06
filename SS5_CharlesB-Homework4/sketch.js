@@ -63,8 +63,8 @@ function keyPressed() {
   if (key === " " && !showingFolder)// go back to the folder when you press "SPACEBAR", and line up the next picture.
     {  
         showingFolder = true;
-        next = (next + 1) % pictures.length; //I asked AI for help with this particular part since i couldn't get it to work properly, All it does is make [next] wrap back to 0 after the final pic.
-        closeSound.currentTime = 0;
+        next = (next + 1) % pictures.length; //I asked one of my mom's work colleuges for help with this particular part since i couldn't get it to work properly, All it does is make [next] wrap back to 0 after the final pic.
+        closeSound.currentTime = 0; //restarts the audio file from the beginning, only plays when something happens because of the "if" statement.
         closeSound.play();
     }
 }
