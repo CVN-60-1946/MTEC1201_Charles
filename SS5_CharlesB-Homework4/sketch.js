@@ -1,5 +1,6 @@
 // Charles B.
 // 10/7/26
+// Title: K4 Pacific Locomotive Examination
 //Just a simple bunch of pictures of the K4 Pacific of the PRR that you can cyle through, I didn't really know what to add for a timer system to work, so i just didn't add one.
 //CONTROLS: CLICK once to open 1 picture, then press SPACE to close the Picture, then CLICK again to open another.
 
