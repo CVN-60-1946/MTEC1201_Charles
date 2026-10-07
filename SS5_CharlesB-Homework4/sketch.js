@@ -1,12 +1,13 @@
 // Charles B.
-//Just a simple bunch of pictures of the K4 Pacific of the PRR that you can cyle through.
+// 10/7/26
+//Just a simple bunch of pictures of the K4 Pacific of the PRR that you can cyle through, I didn't really know what to add for a timer system to work, so i just didn't add one.
 //CONTROLS: CLICK once to open 1 picture, then press SPACE to close the Picture, then CLICK again to open another.
 
 
 let folder;
-let pictures = []; //the brackets are like holding cells for the numbers assigned to the pictures, learned that through YT and some classic "f'ing around and finding out"
+let pictures = []; //the brackets are like holding cells for the numbers assigned to the pictures, learned that through my mom's work friend and some classic "f'ing around and finding out"
 //^ Best part is that it is super easy to expand
-let showingFolder = true; // true = show the placeholder folder, false = show a picture instead of the folder
+let showingFolder = true; // true = shows the placeholder folder png, false = show one of the picture's of the K4 in order instead of the folder
 let next = 0;             // which picture will pull up on the next click.
 let openSound; //the sound of the opening of the file
 let closeSound; //the sound of the closing of the file
@@ -45,7 +46,7 @@ function draw() {
         image(pictures[next], width / 2, height / 2);
         //It's basically saying "if your showing the folder, show the placeholder_folder and show that text"
         //Otherwise, go to the next picture and
-        text("So these are what an American K4 Pacific looks like...", width / 2, height / 10);
+        text("I see, a K4 Pacific...", width / 2, height / 10);
   }
 }
 
@@ -60,7 +61,7 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  if (key === " " && !showingFolder)// go back to the folder when you press "SPACEBAR", and line up the next picture.
+  if (key === " " && !showingFolder)// "When "SPACEBAR" is pressed, go back to showing the placeholder folder and line up the next picture for viewing."
     {  
         showingFolder = true;
         next = (next + 1) % pictures.length; //I asked one of my mom's work colleuges for help with this particular part since i couldn't get it to work properly, All it does is make [next] wrap back to 0 after the final pic.
