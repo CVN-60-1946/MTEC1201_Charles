@@ -5,7 +5,7 @@
 
 
 let folder;
-let pictures = []; //the brackets are like holding cells for the numbers assigned to the pictures, learned that through my mom's work friend and some classic "f'ing around and finding out"
+let pictures = []; //the brackets are like holding cells for the numbers assigned to the pictures, learned that through blind luck and some classic "f'ing around and finding out"
 //^ Best part is that it is super easy to expand
 let showingFolder = true; // true = shows the placeholder folder png, false = show one of the picture's of the K4 in order instead of the folder
 let next = 0;             // which picture will pull up on the next click.
