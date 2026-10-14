@@ -3,7 +3,7 @@
 // Title: K4 Pacific Locomotive Examination
 //Just a simple bunch of pictures of the K4 Pacific of the PRR that you can cyle through, I didn't really know what to add for a timer system to work, so i just didn't add one.
 //CONTROLS: CLICK once to open 1 picture, then press SPACE to close the Picture, then CLICK again to open another.
-//NEW CONTROLS: Press Shift to automatically shift between the slides, Press H to hear random K4 Sounds
+//NEW CONTROLS (ADD-ONS): Press Shift to automatically shift between the slides, Press H to hear random K4 Sounds
 
 //This is the Updated form of Homework 4, since i don't know how to rename files in Github, this is my Midterm Assignment where i add onto an existing project.
 
@@ -40,7 +40,7 @@ async function setup()
     closeSound = new Audio("assets/folder_close.mp3"); 
     //obtained audio from here: https://pixabay.com/sound-effects/search/page-turn/
 
-    K4sounds[0] = new Audio("assets/k4_whistle.mp3");
+    K4sounds[0] = new Audio("assets/k4_whistle.mp3"); //couldn't find a K4 Whistle (that didn't require me to pay 3k+, so i asked an AI to make one for me)
     K4sounds[1] = new Audio("assets/k4_bell.mp3");
     K4sounds[2] = new Audio("assets/k4_chug.mp3");
 
@@ -122,7 +122,7 @@ function keyPressed() {
   }
 }
 
-// choose a random picture, but never the same one twice in a row
+// choose a random picture, but never the same one twice in a row.
 function pickNext()
 {
     let n;
