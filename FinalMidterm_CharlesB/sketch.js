@@ -111,8 +111,8 @@ function draw() {
         rect(width / 2 - 300, 100, 600, 170, 15);
 
         fill(255);
-        textSize(20);
-        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = random K4 sound", width / 2, 140);
+        textSize(15);
+        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = random K4 sound\nUPDATE: \nAdded 3 New Images, Added 1 more random sound\nAdded Instructions Window and workdesk background.", width / 2, 140);
     }
 }
 
