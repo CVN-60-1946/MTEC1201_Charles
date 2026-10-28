@@ -1,9 +1,7 @@
 // Charles B.
-//10/21/26
+//10/28/26 (Update)
 // Title: K4 Pacific Locomotive MIDTERM
 //Just a simple bunch of pictures of the K4 Pacific of the PRR that you can cyle through, I didn't really know what to add for a timer system to work, so i just didn't add one.
-//CONTROLS: CLICK once to open 1 picture, then press SPACE to close the Picture, then CLICK again to open another.
-//NEW CONTROLS (ADD-ONS): Press Shift to automatically shift between the slides, Press H to hear random K4 Sounds.
 
 //This is my Midterm Assignment where i add onto an existing project.
 
@@ -26,6 +24,10 @@ let lastChange = -10000;   // when the last swap happened
 let desk; //The WorkDesk
 let showInstructions = false;
 
+let manualPending = false;   // true while a clicked picture is sliding out
+let bob = 0;
+
+
 async function setup()
 {
     createCanvas(1000, 600);
@@ -42,6 +44,12 @@ async function setup()
     pictures[6] = await loadImage("assets/K4_propo.png");
     pictures[7] = await loadImage("assets/K4_coalfired.png");
     pictures[8] = await loadImage("assets/K4_Poster.png");
+
+    pictures[9] = await loadImage("assets/K4_redarrowaccident.png");
+    pictures[10] = await loadImage("assets/K4_redarrowdamage.png");
+    pictures[11] = await loadImage("assets/K4_turntable_well.png");
+    pictures[12] = await loadImage("assets/K4_derailed.png");
+    pictures[13] = await loadImage("assets/K4_Flooded.png");
     desk = await loadImage("assets/Workdesk.png");
     textSize(20);
 
@@ -62,42 +70,47 @@ async function setup()
 function draw() {
   image(desk, width / 2, height / 2, width, height);
   
-  // autoCycle variable will switch to a random picture every few seconds
-    if (autoCycle && millis() > nextChange)
+    // swap pictures when the timer runs out, or when a click's slide-out finishes
+    if ((autoCycle || manualPending) && millis() > nextChange)
     {
-        pickNext();
+        if (manualPending)
+        {
+            next = (next + 1) % pictures.length;   // clicking goes in order
+            manualPending = false;
+        }
+        else
+        {
+            pickNext();                            // auto-cycle stays random
+        }
+
         openSound.currentTime = 0;
         openSound.play();
-        inDirection = -slideDirection;     // new picture enters from the side the old one left
-        slideDirection = random([1, -1]);  // pick the exit side for the next swap
+        inDirection = -slideDirection;
+        slideDirection = random([1, -1]);
         lastChange = millis();
         nextChange = millis() + random(2000, 4000);
     }
-    
-    let slideOffset = 0;
-    
-    if (autoCycle)
-    {
-        let untilChange = nextChange - millis();
-        let sinceChange = millis() - lastChange;
 
-        if (untilChange < slideTime)
-            slideOffset = slideDirection * (1 - untilChange / slideTime) * width;  // sliding out
-        else if (sinceChange < slideTime)
-            slideOffset = inDirection * (1 - sinceChange / slideTime) * width;     // sliding in
-    }
+    let slideOffset = 0;
+    let untilChange = nextChange - millis();
+    let sinceChange = millis() - lastChange;
+
+    if ((autoCycle || manualPending) && untilChange < slideTime)
+        slideOffset = slideDirection * (1 - untilChange / slideTime) * width;  // sliding out
+    else if (sinceChange < slideTime)
+        slideOffset = inDirection * (1 - sinceChange / slideTime) * width;     // sliding in
+        
+    bob = sin(millis() / 600) * 8;   // gently moves between -8 and +8 pixels
+    cursor(overFolder() ? HAND : ARROW); //Sets the cursor from an arrow to a hand when passing over the hitbox
 
     if (showingFolder)
     {
-        image(folder, width / 2, height / 2);
+        image(folder, width / 2, height / 2 + bob);
     }
-  
     else
     {
-        image(pictures[next], width / 2 + slideOffset, height / 2);
-        //It's basically saying "if your showing the folder, show the placeholder_folder and show that text"
-        //Otherwise, go to the next picture.
-  }
+        drawScaled(pictures[next], width / 2 + slideOffset, height / 2 + bob);
+    }
 
     // small hint, always visible
   fill(255);
@@ -112,19 +125,48 @@ function draw() {
 
         fill(255);
         textSize(15);
-        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = random K4 sound\nUPDATE: \nAdded 3 New Images, Added 1 more random sound\nAdded Instructions Window and workdesk background.", width / 2, 140);
+        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = Whistle | N = Bell | C = Chuffing | S = Coupling\nUPDATE 2: Added a Bobbing + Folder Hitbox\nRedone some controls\nAdded 5 new images\nRescaled ALL Images.", width / 2, 140);
     }
 }
 
-function mousePressed() {
+function overFolder() //Hitbox function
+{
+    return showingFolder &&
+    mouseX > width / 2 - folder.width / 2 &&
+    mouseX < width / 2 + folder.width / 2 &&
+    mouseY > height / 2 + bob - folder.height / 2 &&
+    mouseY < height / 2 + bob + folder.height / 2;
+}
   if (showingFolder)
     {
-        // go from the placeholder_folder to the K4 Picture once you click.
-        startSteam(); //starts steam sounds upon clicking
-        pickNext();
-        showingFolder = false;
-        openSound.currentTime = 0; //restarts the audio file from the beginning, only plays when something happens because of the "if" statement.
-        openSound.play();
+        if (overFolder())          // only opens if the click lands on the folder
+        {
+            showingFolder = false;
+            openSound.currentTime = 0;
+            openSound.play();
+        }
+    }
+  else if (!manualPending)
+    {
+        manualPending = true;
+        nextChange = millis() + slideTime;
+    }
+
+function mousePressed() {
+startSteam();
+if (showingFolder)
+    {
+        if (overFolder())          // only opens if the click lands on the folder
+        {
+            showingFolder = false;
+            openSound.currentTime = 0;
+            openSound.play();
+        }
+    }
+  else if (!manualPending)         // ignores clicks while a slide-out is running
+    {
+        manualPending = true;
+        nextChange = millis() + slideTime;
     }
 }
 
@@ -158,13 +200,14 @@ function keyPressed() {
             closeSound.play();
     }
   }
-  else if (!showingFolder && (key === "h" || key === "H"))
+  else if (!showingFolder)
   {
-      // H key while a picture is showing: play random K4 sound
-      let s = random(K4sounds);
-      s.playbackRate = random(0.8, 1.2);
-      s.currentTime = 0;
-      s.play();
+      let k = key.toLowerCase();   // "H" and "h" both become "h"
+
+      if (k === "h") playK4(0);    // whistle
+      if (k === "n") playK4(1);    // bell
+      if (k === "c") playK4(2);    // chug
+      if (k === "s") playK4(3);    // coupling
   }
 }
 
@@ -194,4 +237,21 @@ function keyReleased() {
     {
         showInstructions = false;
     }
+}
+
+function playK4(i) //K4 Sounds for the above code
+{
+    K4sounds[i].currentTime = 0;
+    K4sounds[i].play();
+}
+
+function drawScaled(img, x, y) //the "Image scaler" system
+{
+    let maxW = width * 0.5;    // biggest allowed width: half the canvas (500)
+    let maxH = height * 0.5;   // biggest allowed height: half the canvas (300)
+
+    // how much to shrink so it fits in the box; the 1 stands for "never enlarge"
+    let s = min(maxW / img.width, maxH / img.height, 1);
+
+    image(img, x, y, img.width * s, img.height * s);
 }
