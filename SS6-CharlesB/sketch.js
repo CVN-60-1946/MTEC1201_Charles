@@ -123,7 +123,7 @@ function draw() {
 
         fill(255);
         textSize(15);
-        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = Whistle | N = Bell | C = Chuffing | S = Coupling\nUPDATE 2: Added a Bobbing + Folder Hitbox\nRedone some controls\nAdded 5 new images\nRescaled ALL Images.", width / 2, 140);
+        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = Whistle | N = Bell | C = Chuffing | S = Coupling\nUPDATE: \nNothing New as of 11/11/2026!", width / 2, 140);
     }
 }
 
