@@ -98,7 +98,7 @@ function draw() {
     else if (sinceChange < slideTime)
         slideOffset = inDirection * (1 - sinceChange / slideTime) * width;     // sliding in
         
-    bob = sin(millis() / 600) * 8;   // gently moves between -8 and +8 pixels
+    bob = sin(millis() / 600) * 2;   // gently moves between -2 and +2 pixels
     cursor(overFolder() ? HAND : ARROW); //Sets the cursor from an arrow to a hand when passing over the hitbox
 
     if (showingFolder)
@@ -123,7 +123,7 @@ function draw() {
 
         fill(255);
         textSize(15);
-        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = Whistle | N = Bell | C = Chuffing | S = Coupling\nUPDATE: \nNothing New as of 11/11/2026!", width / 2, 140);
+        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = Whistle | N = Bell | C = Chuffing | S = Coupling\nUPDATE 3: \nBobbing is slowed much more\nArray.length have been added for better randomization.", width / 2, 140);
     }
 }
 
