@@ -73,7 +73,7 @@ function draw() {
     {
         if (manualPending)
         {
-            next = (next + 1) % pictures.length;   // clicking goes in order, Array.length example
+            next = (next + 1) % pictures.length;   // clicking goes in order, Array.length example, and used to keep track of variables without having tons of code.
             manualPending = false;
         }
         else
@@ -123,7 +123,7 @@ function draw() {
 
         fill(255);
         textSize(15);
-        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = Whistle | N = Bell | C = Chuffing | S = Coupling\nUPDATE 3: \nBobbing is slowed much more\nArray.length have been added for better randomization.", width / 2, 140);
+        text("CLICK = open a picture\nSPACE = close the picture\nSHIFT = auto-cycle on/off\nH = Whistle | N = Bell | C = Chuffing | S = Coupling\nUPDATE 3: \nBobbing is slowed much more\nArray.length(pictures.length) have been added for image scaling.", width / 2, 140);
     }
 }
 
@@ -245,11 +245,11 @@ function playK4(i) //K4 Sounds for the above code
 
 function drawScaled(img, x, y) //the "Image scaler" system
 {
-    let maxW = width * 0.5;    // biggest allowed width: half the canvas (500)
-    let maxH = height * 0.5;   // biggest allowed height: half the canvas (300)
+    let maxW = width * 0.5;    // biggest allowed width is half the canvas (500)
+    let maxH = height * 0.5;   // biggest allowed height is also half the canvas (300)
 
     // how much to shrink so it fits in the box; the 1 stands for "never enlarge"
-    let s = min(maxW / img.width, maxH / img.height, 1);
+    let s = min(maxW / img.width, maxH / img.height, 1); //s = max width divided by image width and max height divided by image height, and never enlarge.
 
-    image(img, x, y, img.width * s, img.height * s);
-}
+    image(img, x, y, img.width * s, img.height * s); //img is a self-designated variable used for the scaling of the image.
+}                //Image width times s and image height times s.
